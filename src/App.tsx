@@ -1,7 +1,9 @@
+import Header from "./components/header";
+
 function App() {
   return (
     <div>
-      <h1 className="text-center font-bold"> Inicializando projeto</h1>
+      <Header>CAMPEONATO DE JOGOS ELETRÔNICOS</Header>
     </div>
   );
 }
