@@ -14,7 +14,11 @@ type TeamListProps = {
 
 const TeamList: React.FC<TeamListProps> = ({ teams }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-start">
+      <h2 className="font-bold text-center text-blue-500 text-2xl">
+        EQUIPES CADASTRADAS
+      </h2>
+
       <div className="mt-6 space-y-4 max-w-lg flex-col">
         {teams.map((team, index) => (
           <div key={index} className="bg-white p-6 pr-16 rounded-xl shadow">
