@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import { v4 as uuidv4 } from "uuid";
 import TeamList from "./components/TeamList";
@@ -17,22 +17,18 @@ type Team = {
 };
 
 function App() {
-  const [teams, setTeams] = useState<Team[]>([
-    {
-      id: uuidv4(),
-      name: "Teste1",
-      nameJogo: "Free Fire",
-      email: "teste@gmail.com",
-      players: ["João", "Maria", "Pedro", "Lucas"],
-    },
-    {
-      id: uuidv4(),
-      name: "TesteDois",
-      nameJogo: "Free Fire",
-      email: "teste2@gmail.com",
-      players: ["Ana", "Carlos", "Beatriz", "Rafael"],
-    },
-  ]);
+  const [teams, setTeams] = useState<Team[]>(() => {
+    const stored = localStorage.getItem("teams");
+    try {
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("teams", JSON.stringify(teams));
+  }, [teams]);
 
   const onAddTeamSubmit = (
     name: string,
