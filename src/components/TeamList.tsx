@@ -5,6 +5,7 @@ type GameName = "Valorant" | "CS2" | "LoL" | "Free Fire";
 type Team = {
   name: string;
   nameJogo: GameName;
+  email: string;
   players: string[];
 };
 
