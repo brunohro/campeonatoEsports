@@ -6,7 +6,7 @@ type HeaderProps = {
 
 function Header({ children }: HeaderProps) {
   return (
-    <div className="h-20 bg-black">
+    <div className="h-auto bg-black">
       <h1 className="text-white font-extrabold text-center p-5 text-3xl">
         {children}
       </h1>
